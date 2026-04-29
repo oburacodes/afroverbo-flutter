@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  //static const String baseUrl = 'https://afroverbo-backend.onrender.com/api';
+  static const String baseUrl = 'https://afroverbo-backend.onrender.com/api';
 
-  static const String baseUrl = 'http://10.0.2.2:8080/api';
+  //static const String baseUrl = 'http://10.0.2.2:8080/api';
 
   static Future<void> saveToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
@@ -306,10 +306,7 @@ class ApiService {
         if (query != null && query.isNotEmpty) 'query': query,
       },
     );
-    return await http.get(
-      uri,
-      headers: headers,
-    );
+    return await http.get(uri, headers: headers);
   }
 
   static Future<http.Response> getTutorBookings(
@@ -324,10 +321,7 @@ class ApiService {
         if (query != null && query.isNotEmpty) 'query': query,
       },
     );
-    return await http.get(
-      uri,
-      headers: headers,
-    );
+    return await http.get(uri, headers: headers);
   }
 
   static Future<http.Response> updateBookingStatus(
